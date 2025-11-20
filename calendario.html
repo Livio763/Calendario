@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendario — Organiza tu vida</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div id="welcomeScreen" class="welcome">
+    <div class="welcome-content">
+      <div class="logo-circle"></div>
+      <h1 class="welcome-title">Calendario</h1>
+      <p class="welcome-subtitle">Organiza tu vida</p>
+    </div>
+  </div>
+
+  <div id="mainApp" class="main-app">
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+      <span id="themeIcon">🌙</span>
+    </button>
+
+    <h1>Calendario <span class="task-counter" id="taskCounter">0 tareas</span></h1>
+
+  <div class="wrap">
+    <div class="calendar">
+      <div class="nav">
+        <button id="prev">&lt; Mes</button>
+        <div id="monthYear"></div>
+        <div style="display:flex;gap:.5rem;">
+          <button id="notifyBtn">Activar avisos</button>
+          <button id="next">Mes &gt;</button>
+        </div>
+      </div>
+      <table id="calendarTable"></table>
+    </div>
+
+    <div class="event-panel">
+      <h2>Tareas del <span id="selectedDateText">--/--/----</span></h2>
+      <div class="panel-switch">
+        <button id="btnNew" class="panel-btn" aria-label="Nuevo recordatorio">Nuevo recordatorio</button>
+        <button id="btnView" class="panel-btn" aria-label="Ver recordatorios">Ver recordatorios</button>
+      </div>
+      
+      <div class="search-box">
+        <input type="text" id="searchTask" placeholder="Buscar tareas..." />
+      </div>
+
+      <ul id="eventsList"><li>No hay tareas aún.</li></ul>
+
+      <h3>Agregar tarea</h3>
+      <form id="taskForm">
+        <input id="title" type="text" placeholder="Título" required />
+        <textarea id="desc" placeholder="Descripción"></textarea>
+        <input id="time" type="time" placeholder="Hora" />
+        <input id="photo" type="file" accept="image/*" />
+        <button>Guardar tarea</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h3>Editar tarea</h3>
+      <form id="editForm">
+        <input id="editTitle" type="text" placeholder="Título" required />
+        <textarea id="editDesc" placeholder="Descripción"></textarea>
+        <input id="editTime" type="time" placeholder="Hora" />
+        <input id="editPhoto" type="file" accept="image/*" />
+        <button type="submit">Guardar cambios</button>
+        <button type="button" class="close-modal" id="cancelEdit">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="alertModal" class="alert-modal">
+    <div class="alert-modal-content">
+      <div class="alert-header">
+        <div class="alert-icon">⏰</div>
+        <h2>¡Es hora de tu tarea!</h2>
+      </div>
+      <div class="alert-body">
+        <h3 id="alertTitle"></h3>
+        <p id="alertTime"></p>
+        <p id="alertDesc"></p>
+        <img id="alertPhoto" style="display:none" />
+      </div>
+      <div class="alert-footer">
+        <button id="closeAlert" class="btn-close-alert">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/principal.js"></script>
+</body>
+</html>
